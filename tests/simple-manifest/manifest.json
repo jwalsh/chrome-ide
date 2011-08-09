@@ -1,0 +1,9 @@
+{
+		// Required
+		"name": "My Extension",
+		"version": "versionString",
+
+		// Recommended
+		"description": "A plain text description",
+		"icons": { "128": "icon128.png" }
+}

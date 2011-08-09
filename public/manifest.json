@@ -1,0 +1,19 @@
+{
+	"name": "Chrome IDE",
+	"version": "0.1",
+	"description": "",
+
+	"app": {
+		"launch": {
+			"local_path": "index.html"
+		}
+	},
+	"permissions":[
+		"unlimitedStorage"	
+	],
+	"icons": {
+			"128": "img/icon128.png",
+			"16": "img/icon16.png"
+	}
+
+}

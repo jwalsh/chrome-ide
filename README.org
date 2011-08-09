@@ -1,0 +1,11 @@
+* Background 
+
+Fork of the project for the Google Seattle HTML5 Web App Hackathon.
+
+  https://bitbucket.org/btosch/superchromeide
+
+* Updates
+
+** UI modifications 
+
+** localStorage

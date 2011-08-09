@@ -1,0 +1,8 @@
+{
+	"name": "IDE",
+	"version": "0.0.1",
+	"dependencies": {
+		"connect": "1.6.0",
+		"socket.io": "0.7.8"
+	}
+}

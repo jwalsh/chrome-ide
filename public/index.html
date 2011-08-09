@@ -1,0 +1,75 @@
+<DOCTYPE html> 
+<html> 
+	
+	<head> 
+		<title>Extension Writer = Write Extensions for Chrome, in Chrome</title> 
+		<link type="text/css" rel="stylesheet" href="css/fonts.css">
+		<link type="text/css" rel="stylesheet" href="css/shell.css">
+	
+		<!-- codemirror css -->
+		<link rel="stylesheet" href="lib/CodeMirror-2.12/theme/default.css">
+		<link rel="stylesheet" href="lib/CodeMirror-2.12/lib/codemirror.css">
+	</head> 
+	
+	<body>
+		<div id="header">
+		</div>
+
+		<nav></nav>
+
+		<article>
+			<div id="wrapper">
+				<div id="editContainer">	
+					<div id="fileEditor">
+						<input typt="text" id="fileTitle" value="manifest.json"></input>
+						<textarea id="main_editor" class="editor">
+{
+	// Required
+	"name": "My Extension",
+	"version": "versionString",
+
+	// Recommended
+	"description": "A plain text description",
+	"icons": { "128": "icon128.png" }
+}
+						</textarea>
+					</div>
+					<div id="fileSelect">
+						<select id="selectFile" multiple size="10">
+							<option value="manifest.json" data-syntax="javascript">manifest.json</option>
+							<option value="main.html" data-syntax="text/html">main.html</option>
+						</select>
+					</div>
+				</div>
+				<div id="commandBar">
+					<div id="files">
+						<input type="file" id="files" name="files[]" multiple>
+					</div>
+					<button onclick="file.new()">Create New File</button>
+					<button onclick="file.save()">Save File</button>
+					<div id="downloadify"></div>
+				</div>
+				<div id="status"></div>
+			</div> 
+
+
+		</article>
+
+		<div id="footer">
+		</div>
+
+		<!-- codemirror js -->
+		<script src="lib/CodeMirror-2.12/lib/codemirror.js"></script>
+		<script src="lib/CodeMirror-2.12/mode/xml/xml.js"></script>
+		<script src="lib/CodeMirror-2.12/mode/javascript/javascript.js"></script>
+		<script src="lib/CodeMirror-2.12/mode/htmlmixed/htmlmixed.js"></script>
+		
+		<script type="text/javascript" src="lib/swfobject.js"></script> 
+		<script type="text/javascript" src="lib/downloadify.js"></script> 
+		
+		<script type="text/javascript" src="lib/jszip.js"></script> 
+		<script type="text/javascript" src="js/app.js"> 
+		</script>
+
+	</body> 
+</html> 
