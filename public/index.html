@@ -76,17 +76,13 @@
 			<script type="text/javascript" src="js/app.js"> 
 			</script>
 
-<script src="/socket.io/socket.io.js"></script>
+<script src="http://localhost:8123/socket.io/socket.io.js"></script>
 <script>
-  var chat = io.connect('/chat')
-    , news = io.connect('/news');
-
-  chat.on('connect', function () {
-    chat.emit('hi!');
-  });
-
-  news.on('news', function () {
-    news.emit('woot');
+  var socket = io.connect('http://empty-warrior-536.herokuapp.com:8123/');
+  socket.on('news', function (data) {
+    var status = document.querySelector('#status');
+    status.innerHTML = data.toString();
+    socket.emit('my other event', { my: 'data' });
   });
 </script>
 
