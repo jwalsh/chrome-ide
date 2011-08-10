@@ -1,5 +1,5 @@
 var connect = require('connect'),
-io = require('socket.io'),
+// io = require('socket.io'),
 server,
 port = process.env.PORT || 3000;
 
@@ -11,25 +11,15 @@ server
 	)
 	.listen(port);
 
-io.listen(server);
+// io.listen(server);
 
-var chat = io
-  .of('/chat')
-  .on('connection', function (socket) {
-    socket.emit('a message', {
-        that: 'only'
-      , '/chat': 'will get'
-    });
-    chat.emit('a message', {
-        everyone: 'in'
-      , '/chat': 'will get'
-    });
-  });
+var io = require('socket.io').listen(8123);
 
-var news = io
-  .of('/news')
-  .on('connection', function (socket) {
-    socket.emit('item', { news: 'item' });
+io.sockets.on('connection', function (socket) {
+  socket.emit('news', { hello: 'world' });
+  socket.on('my other event', function (data) {
+    console.log(data);
   });
+});
 
 console.log("Running http://localhost:" + port + "/");
