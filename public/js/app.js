@@ -246,37 +246,37 @@ window.onload = function() {
 	socket.on(
 			'connect',
 			function () { 
-				status.innerHTML = ('connect at ' + +new Date());
+				status.innerHTML = ('Connect at ' + +new Date());
 			});
 
 	socket.on(
 			'disconnect',
 			function () { 
-				status.innerHTML = ('disconnect at ' + +new Date());
+				status.innerHTML = ('Disconnect at ' + +new Date());
 			});
 
 	socket.on(
 			'reconnecting',
 			function () { 
-				status.innerHTML = ('reconnecting at '+ +new Date());
+				status.innerHTML = ('Reconnecting at '+ +new Date());
 			});
 
 	socket.on(
 			'reconnect',
 			function () { 
-				status.innerHTML = ('reconnect at ' + +new Date());
+				status.innerHTML = ('Reconnect at ' + +new Date());
 			});
 
 	socket.on(
 			'reconnect_failed',
 			function () { 
-				status.innerHTML = ('reconnect_failed at ' + +new Date());
+				status.innerHTML = ('Reconnect failed at ' + +new Date());
 			});
 
 	socket.on(
 			'broadcast',
 			function () { 
-				status.innerHTML = ('broadcast at ' + +new Date());
+				status.innerHTML = ('Broadcast at ' + +new Date());
 			});
 
 	// Custom events for broadcast
