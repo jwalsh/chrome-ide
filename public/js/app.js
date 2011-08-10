@@ -234,10 +234,54 @@ window.onload = function() {
   status.innerHTML = 'Loaded';
 
 	socket = io.connect('/');
-	socket.on('news', function (data) {
-		var status = document.querySelector('#status');
-		status.innerHTML = JSON.stringify(data);
-	});
+
+	socket.on(
+			'message', 
+			function (msg) {
+				console.log(msg);
+				status.innerHTML = msg;
+			});
+
+	socket.on(
+			'connect',
+			function () { 
+				console.log('connect');
+			});
+
+	socket.on(
+			'disconnect',
+			function () { 
+				console.log('disconnect');
+			});
+
+	socket.on(
+			'reconnecting',
+			function () { 
+				console.log('reconnecting');
+			});
+
+	socket.on(
+			'reconnect',
+			function () { 
+				console.log('reconnect');
+			});
+
+	socket.on(
+			'broadcast',
+			function () { 
+				console.log('broadcast');
+			});
+
+	// Custom events for broadcast
+	socket.on(
+			'news', 
+			function (data) {
+				console.log(data);
+				var status = document.querySelector('#status');
+				status.innerHTML = JSON.stringify(data);
+			});
+
+	// Custom updates 
 	socket.emit('status', navigator.appName + ' at ' + new Date());
 
 };
