@@ -1,10 +1,6 @@
 body {
     font-family: 'Open Sans', arial, sans-serif;
 		color: #666;
-		background-image: linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black), 
-		linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black);
-		background-size:60px 60px;
-		background-position:0 0, 30px 30px
 }
 
 h1 { 
@@ -16,21 +12,28 @@ h2 {
 		font-size: 18px;
 }
 
-header {
+header, article, h3 {
 		width: 854px; 
 }
+
+/* Above and below the text area for editor UI*/
+nav { 
+		width: 860px; 
+		margin: 0px;
+}
+
 /* The filename */
 h3 { 
+		margin: 0px;
 		font-family: monospace;
+		font-size: 12px;
 		background-color: #ddd;
 		font-weight: 100;
 		color: rgb(17, 119, 0); /* Using CodeMirror style rather than  #99cc66; */
 		border: 1px solid #222;
 		border-top: none;
 		padding: 3px;
-		margin: 0px;
 		margin-bottom: 15px;
-		width: 854px; 
 } 
 
 #filename { 
@@ -48,7 +51,25 @@ a:visited {
 		color: #6699cc;
 }
 
-nav {
+nav ul { 
+		margin: 0px;
+		padding: 0px;
+		width: 100%;
+		background: #aaa;
+		font-family: Arial;
+		font-size: 11px;
+		color: #222;
+		border: 1px solid #222;
+		border-bottom: none;
+}
+
+nav ul li { 
+		display: inline-block;
+		margin: 0px;
+		padding: 5px;
+}
+
+sidebar {
 		width: 300px;
 		float: right;
 		padding: 10px;
