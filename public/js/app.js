@@ -268,6 +268,12 @@ window.onload = function() {
 			});
 
 	socket.on(
+			'reconnect_failed',
+			function () { 
+				status.innerHTML = ('reconnect_failed at ' + +new Date());
+			});
+
+	socket.on(
 			'broadcast',
 			function () { 
 				status.innerHTML = ('broadcast at ' + +new Date());
