@@ -1,4 +1,5 @@
 var connect = require('connect'),
+io = require('socket.io'),
 server,
 port = process.env.PORT || 3000;
 
@@ -9,5 +10,7 @@ server
 			.static(__dirname + '/public')
 	)
 	.listen(port);
+
+io.listen(server);
 
 console.log("Running http://localhost:" + port + "/");
