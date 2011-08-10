@@ -2,6 +2,7 @@
 	"name": "chrome-ide",
 	"version": "0.0.4",
   "dependencies": {
-	  "connect": "1.6.1"
+	  "connect": "1.6.1",
+		"socket.io": "0.7.8"
   }
 }
