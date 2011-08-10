@@ -22,7 +22,7 @@ var templates = [
     {
       name: 'index.html',
       syntax: 'text/html',
-      data: '<html>\n  <body>\n    <h1>Welcome to My Extension</h1>\n    <nav>\n      <ul>\n        <li>add</li>\n        <li>update</li>\n        <li>delete</li>\n        <li><a href="about.html">about</a></li>\n      </ul>\n    </nav>\n    <script src="app.js"></script>\n  </body>\n</html>'
+      data: '<html>\n  <head>\n    <link rel="stylesheet" href="app.css"/>\n  </head>\n  <body>\n    <h1>Welcome to My Extension</h1>\n    <nav>\n      <ul>\n        <li>add</li>\n        <li>update</li>\n        <li>delete</li>\n        <li><a href="about.html">about</a></li>\n      </ul>\n    </nav>\n    <script src="app.js"></script>\n  </body>\n</html>'
     },
     {
       name: 'about.html',
@@ -33,7 +33,13 @@ var templates = [
       name: 'app.js',
       syntax: 'javascript',
       data: 'console.log(\'Loaded My Extension...\')'
+    },
+    {
+      name: 'app.css',
+      syntax: 'css',
+      data: 'body { font-family: "Comic Sans";}'
     }
+
 ];
 
 // Render template model into an option view 
