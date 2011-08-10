@@ -14,10 +14,10 @@ var filesEl = document.getElementById('files');
 var selectFileHtml = ''; // concat rather than push
 
 var templates = [
-		{
-			name: 'manifest.json',
-			syntax: 'javascript',
-			data: '{\n  "name": "My Extension",\n  "version": "versionString",\n\n  // Recommended\n  "description": "A plain text description",\n  "icons":\n    {\n      "128": "http://wal.sh/poc/superchromeide/public/img/icon128.png",\n      "16": "http://wal.sh/poc/superchromeide/public/img/icon16.png"\n    }\n  }'
+    {
+      name: 'manifest.json',
+      syntax: 'javascript',
+      data: '{\n  "name": "My Extension",\n  "version": "versionString",\n\n  "description": "A plain text description",\n  "icons":\n    {\n      "128": "http://wal.sh/poc/superchromeide/public/img/icon128.png",\n      "16": "http://wal.sh/poc/superchromeide/public/img/icon16.png"\n    }\n  }'
     },
     {
       name: 'index.html',
@@ -44,10 +44,10 @@ templates.forEach(function(item) {
 selectFile.innerHTML = selectFileHtml; 
 
 function updateSelectedFileUI(filename, filetype) {
-	filenameEl.innerHTML = filename;
-	filetypeEl.innerHTML = filetype;
-	titleEl.innerHTML = 'file: ' + filename;
-	window.location.hash = '#file:' + filename;
+  filenameEl.innerHTML = filename;
+  filetypeEl.innerHTML = filetype;
+  titleEl.innerHTML = 'file: ' + filename;
+  window.location.hash = '#file:' + filename;
 }
 
 // When selecting any filename update the main editor window (and title)
@@ -56,7 +56,7 @@ selectFile.addEventListener(
     function() {
       var i = selectFile.selectedIndex;
       editor.setValue(templates[i].data);
- 			updateSelectedFileUI(selectFile.options[i].value, selectFile.options[i].dataset.syntax);
+      updateSelectedFileUI(selectFile.options[i].value, selectFile.options[i].dataset.syntax);
       editor.setOption('mode', selectFile.options[i].dataset.syntax);
     }
 
@@ -65,7 +65,7 @@ selectFile.addEventListener(
 
 Downloadify.create('downloadify', {
   data: function() {
-		return zip.go();
+    return zip.go();
   },
   filename: 'chrome-extension.zip',
   swf: 'media/downloadify.swf',
@@ -82,9 +82,9 @@ Downloadify.create('downloadify', {
 
 zip = {
   go: function() {
-		var zip = new JSZip();
-		zip.add('manifest.json');
-		return zip.generate();
+    var zip = new JSZip();
+    zip.add('manifest.json');
+    return zip.generate();
   }
 };
 
@@ -119,15 +119,15 @@ var readDir = function(dirs) {
   var entries = dirs;
   var dirReader = FS.root.createReader();
   var readEntries = function readEntries() {
-		dirReader.readEntries(function(results) {
-			if (!results.length) {
-				zip.additionaltargets.append(entries.sort());
-				listResults(entries.sort());
-			} else {
-				entries = entries.concat(toArray(results));
-				readEntries();
-			}
-		}, errorHandler);
+    dirReader.readEntries(function(results) {
+      if (!results.length) {
+        zip.additionaltargets.append(entries.sort());
+        listResults(entries.sort());
+      } else {
+        entries = entries.concat(toArray(results));
+        readEntries();
+      }
+    }, errorHandler);
   };
   readEntries();
 };
@@ -141,44 +141,44 @@ function handleFileSelect(evt) {
 
 var addDir = function(dir) {
   FS.root.getDirectory(dir.name, {create: false}, function(fileEntry) {
-		console.log(fileEntry);
+    console.log(fileEntry);
   }, errorHandler);
 };
 
 var addFile = function(directory, name, content) {
   FS.root.getFile(name, {create: true}, function(fileEntry) {
-		fileEntry.createWriter(function(fileWriter) {
-			fileWriter.onwriteend = function(e) {
-				console.log('Write completed.');
-			};
+    fileEntry.createWriter(function(fileWriter) {
+      fileWriter.onwriteend = function(e) {
+        console.log('Write completed.');
+      };
 
-			fileWriter.onerror = function(e) {
-				console.log('Write failed: ' + e.toString());
-			};
+      fileWriter.onerror = function(e) {
+        console.log('Write failed: ' + e.toString());
+      };
 
-			// Create a new Blob and write it to log.txt.
-			var bb = new window.WebKitBlobBuilder(); // Note: window.WebKitBlobBuilder in Chrome 12.
-			bb.append(content);
-			fileWriter.write(bb.getBlob('text/plain'));
-		}, errorHandler);
+      // Create a new Blob and write it to log.txt.
+      var bb = new window.WebKitBlobBuilder(); // Note: window.WebKitBlobBuilder in Chrome 12.
+      bb.append(content);
+      fileWriter.write(bb.getBlob('text/plain'));
+    }, errorHandler);
   }, errorHandler);
 };
 
 
 var file = (function() {
   return {
-		add: function(e) {
-			//clear text area
-		},
-		save: function(e) {
-			//pull title from element
-			//grab text from main windown
-			//add them both to FS
-			var title = titleEl.value;
-			var content = mainEditor.value;
-			addFile(FS.root, title, content);
-		},
-		zip: function() { }
+    add: function(e) {
+      //clear text area
+    },
+    save: function(e) {
+      //pull title from element
+      //grab text from main windown
+      //add them both to FS
+      var title = titleEl.value;
+      var content = mainEditor.value;
+      addFile(FS.root, title, content);
+    },
+    zip: function() { }
   };
 }());
 
@@ -198,27 +198,27 @@ var storage = localStorage.getItem('editorfile');
 
 /* init syntax highlighting - codemirror */
 window.editor = CodeMirror.fromTextArea(
-		document.querySelector('#main_editor'), {
-			mode: 'text/html',
-			lineNumbers: true,
-			onChange: function() {
-				// TODO: Requerying the DOM should be unnecessary 
-				var status = document.querySelector('#status');
-				status.innerHTML = 'Saving...';
-				setInterval(
-						function() {
-							status.innerHTML = 'Ready';
-						}, 1200);
-				localStorage.setItem('editorfile', editor.getValue());
-			}
-		});
+    document.querySelector('#main_editor'), {
+      mode: 'text/html',
+      lineNumbers: true,
+      onChange: function() {
+        // TODO: Requerying the DOM should be unnecessary 
+        var status = document.querySelector('#status');
+        status.innerHTML = 'Saving...';
+        setInterval(
+            function() {
+              status.innerHTML = 'Ready';
+            }, 1200);
+        localStorage.setItem('editorfile', editor.getValue());
+      }
+    });
 
 // END: Save the active editor state
 
 // START: Final UI cleanup  
 window.onload = function() { 
-	var status = document.querySelector('#status');
-	status.innerHTML = 'Loaded';
+  var status = document.querySelector('#status');
+  status.innerHTML = 'Loaded';
 };
 
 

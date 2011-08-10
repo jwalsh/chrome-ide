@@ -17,3 +17,6 @@ Examples:
 - Tripod
 
 ** Use flexible layout
+** Correct csslint errors
+
+csslint: There are 13 problems in /Users/jwalsh/sandbox/chrome-extension-ide/public/css/shell.css.
