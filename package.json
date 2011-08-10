@@ -1,7 +1,4 @@
 {
 	"name": "chrome-ide",
-	"version": "0.0.2",
-	"dependencies": {
-		"connect": "1.6.0"
-	}
+	"version": "0.0.2"
 }
