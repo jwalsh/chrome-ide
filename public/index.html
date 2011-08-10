@@ -73,18 +73,8 @@
 			<script type="text/javascript" src="lib/downloadify.js"></script> 
 			
 			<script type="text/javascript" src="lib/jszip.js"></script> 
+			<script src="/socket.io/socket.io.js"></script>
 			<script type="text/javascript" src="js/app.js"> 
 			</script>
-
-<script src="/socket.io/socket.io.js"></script>
-<script>
-  var socket = io.connect('/');
-  socket.on('news', function (data) {
-    var status = document.querySelector('#status');
-    status.innerHTML = JSON.stringify(data);
-    socket.emit('my other event', { my: 'data' });
-  });
-</script>
-
 		</body> 
 	</html> 
