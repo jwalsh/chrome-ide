@@ -27,7 +27,7 @@ h3 {
 		padding: 3px;
 		margin: 0px;
 		margin-bottom: 15px;
-		width: 855px;  /* -1 for Chromebook */
+		width: 854px; 
 } 
 
 #filename { 
@@ -73,8 +73,8 @@ nav {
 }
 
 object {
-		width: 120px; /* -20 for Chromebook */
-		height: 36px; /* -6 for Chromebook */
+		width: 100px;
+		height: 30px; 
 }
 
 select  {
