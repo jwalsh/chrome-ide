@@ -59,6 +59,8 @@ function updateSelectedFileUI(filename, filetype) {
   filetypeEl.innerHTML = filetype;
   titleEl.innerHTML = filename + ': Chrome IDE';
   window.location.hash = '#file:' + filename;
+	socket.emit('status', navigator.appName + ' viewed ' + filename + ' on ' + new Date());
+
 }
 
 // When selecting any filename update the main editor window (and title)
@@ -231,7 +233,7 @@ window.onload = function() {
   var status = document.querySelector('#status');
   status.innerHTML = 'Loaded';
 
-	var socket = io.connect('/');
+	socket = io.connect('/');
 	socket.on('news', function (data) {
 		var status = document.querySelector('#status');
 		status.innerHTML = JSON.stringify(data);
