@@ -1,5 +1,5 @@
 var connect = require('connect'),
-io = require('socket.io'),
+// io = require('socket.io'),
 server,
 port = process.env.PORT || 3000;
 
@@ -11,7 +11,7 @@ server
 	)
 	.listen(port);
 
-io.listen(server);
+// io.listen(server);
 
 
 // io.sockets.on(
