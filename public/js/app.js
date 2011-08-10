@@ -230,16 +230,18 @@ window.editor = CodeMirror.fromTextArea(
 window.onload = function() { 
   var status = document.querySelector('#status');
   status.innerHTML = 'Loaded';
+
+	var socket = io.connect('/');
+	socket.on('news', function (data) {
+		var status = document.querySelector('#status');
+		status.innerHTML = JSON.stringify(data);
+		socket.emit('my other event', { my: 'data' });
+	});
+
 };
 
 
 // END: Final UI cleanup  
 
-var socket = io.connect('/');
-socket.on('news', function (data) {
-  var status = document.querySelector('#status');
-  status.innerHTML = JSON.stringify(data);
-  socket.emit('my other event', { my: 'data' });
-});
 
 
