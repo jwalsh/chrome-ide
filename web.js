@@ -16,7 +16,7 @@ server
 var io = require('socket.io').listen(server);
 
 io.sockets.on('connection', function (socket) {
-  socket.emit('news', { hello: 'world' });
+  socket.emit('news', { load: new Date() });
   socket.on('my other event', function (data) {
     console.log(data);
   });
