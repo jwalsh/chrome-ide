@@ -38,6 +38,11 @@ var templates = [
       name: 'app.css',
       syntax: 'css',
       data: 'body { font-family: "Comic Sans";}'
+    },
+    {
+      name: '*scratch*',
+      syntax: 'text',
+      data: ''
     }
 
 ];
