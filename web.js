@@ -13,7 +13,7 @@ server
 
 // io.listen(server);
 
-var io = require('socket.io').listen(8123);
+var io = require('socket.io').listen(server);
 
 io.sockets.on('connection', function (socket) {
   socket.emit('news', { hello: 'world' });
