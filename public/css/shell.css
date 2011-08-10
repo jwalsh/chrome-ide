@@ -12,7 +12,7 @@ h2 {
 		font-size: 18px;
 }
 
-header, article, h3 {
+header, article, h3, textarea {
 		width: 854px; 
 }
 
