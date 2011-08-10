@@ -11,16 +11,33 @@ server
 	)
 	.listen(port);
 
-// io.listen(server);
-
 var io = require('socket.io').listen(server);
 
-io.sockets.on('connection', function (socket) {
-  socket.emit('news', { load: new Date() });
-  socket.on('status', function (data) {
-    console.log(data);
-		socket.emit('news', { connect: data });
-  });
-});
+activeClients = 0;
+io.sockets.on('connection', function(socket){ 
+  activeClients +=1;
+	function clientDisconnect(){
+		activeClients -=1;
+		socket.broadcast.send(activeClients + ' clients');
+	}
+  socket.broadcast.send(activeClients + ' clients');
+
+  socket.on(
+			'status', 
+			function (data) {
+				console.log(data);
+				// This just shows the user agent and time when the 
+				// client supplies the information:
+				// socket.broadcast.send('status: ' + data);
+			});
+
+
+	// console.log({clients:activeClients});
+  socket.on(
+			'disconnect', 
+			function(socket) {
+				clientDisconnect();
+			});
+}); 
 
 console.log("Running http://localhost:" + port + "/");
