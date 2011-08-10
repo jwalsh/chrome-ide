@@ -1,8 +1,7 @@
 {
-	"name": "IDE",
-	"version": "0.0.1",
+	"name": "Chrome IDE",
+	"version": "0.0.2",
 	"dependencies": {
-		"connect": "1.6.0",
-		"socket.io": "0.7.8"
+		"connect": "1.6.0"
 	}
 }
