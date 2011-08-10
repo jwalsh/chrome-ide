@@ -52,7 +52,7 @@ selectFile.innerHTML = selectFileHtml;
 function updateSelectedFileUI(filename, filetype) {
   filenameEl.innerHTML = filename;
   filetypeEl.innerHTML = filetype;
-  titleEl.innerHTML = 'file: ' + filename;
+  titleEl.innerHTML = filename + ': Chrome IDE';
   window.location.hash = '#file:' + filename;
 }
 
