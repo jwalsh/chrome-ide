@@ -19,7 +19,23 @@ h2 {
 /* The filename */
 h3 { 
 		font-family: monospace;
+		background-color: #ddd;
+		font-weight: 100;
+		color: rgb(17, 119, 0); /* Using CodeMirror style rather than  #99cc66; */
+		border: 1px solid #222;
+		border-top: none;
+		padding: 3px;
+		margin: 0px;
+		margin-bottom: 15px;
+		width: 855px;
 } 
+
+#filename { 
+		color: rgb(170, 85, 0); /* CodeMirror style */ 
+} 
+
+#filetype { 
+}
 
 a:link { 
 		color: #b87a3d;
@@ -32,14 +48,13 @@ a:visited {
 nav {
 		width: 300px;
 		float: right;
-		border: 1px solid #888888;
 		padding: 10px;
 		border: 1px solid #dddddd;
 		border-radius: 10px;
 		background: rgb(210, 219, 237);
 }
 
-#status {
+.status {
 		border: 1px solid #dddddd;
 		padding: 10px;
 		width: 300px;
@@ -57,7 +72,7 @@ nav {
 		color: #cccc99;
 }
 
-#downloadify, object { 
+object {
 		width: 120px;
 		height: 37px;
 }
@@ -72,10 +87,14 @@ option {
 		border-bottom: 1px solid #aaa;
 }
 
+
+#editContainer { 
+		width: 860px;
+}
 /* codemirror styles */
 .CodeMirror {
 		border: 1px solid #333;
 		font-size: 15px;
 		height: 300px; /* Defined by default for .CodeMirror-gutter */
-		width: 860px;
+		width: 100%;
 }

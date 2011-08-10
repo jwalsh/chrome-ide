@@ -11,7 +11,7 @@
 		
 		<body>
 			<header>
-				<div id="status">Loading...</div>
+				<div id="status" class="status">Loading...</div>
 				<h1>Chrome App IDE <img src="img/icon16.png"/></h1>
 				<p>Create a Chrome application or extension from inside your <a href="http://www.google.com/chromebook/">Chromebook</a> using our predefined templates or upload your own files.</p>
 			</header>
@@ -37,7 +37,7 @@
 					<input type="radio" name="ext">Extension</input>
 
 
-					<h2>3. Create Zip</h2>
+					<h2>3. Create Archive</h2>
 
 					<div id="downloadify">Save as Zip</div>
 
@@ -49,8 +49,11 @@
 
 				<article>
 					<div id="editContainer">	
-						<h3 id="filename">file: none</h3>
 						<textarea id="main_editor" class="editor"></textarea>
+						<h3>
+							<span id="filename">none</span>
+							(<span id="filetype">text</span>)
+						</h3>
 					</div>
 				</article>
 

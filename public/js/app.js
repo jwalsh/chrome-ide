@@ -3,6 +3,7 @@
 var mainEditor = document.querySelector('#main_editor');
 var selectFile = document.querySelector('#selectFile');
 var filenameEl = document.querySelector('#filename');
+var filetypeEl = document.querySelector('#filetype');
 // TODO: Check load ordering that makes staus unavailable on load
 var status = document.querySelector('#status');
 var titleEl = document.querySelector('title');
@@ -42,8 +43,9 @@ templates.forEach(function(item) {
 
 selectFile.innerHTML = selectFileHtml; 
 
-function updateSelectedFileUI(filename) {
-	filenameEl.innerHTML = 'file: ' + filename;
+function updateSelectedFileUI(filename, filetype) {
+	filenameEl.innerHTML = filename;
+	filetypeEl.innerHTML = filetype;
 	titleEl.innerHTML = 'file: ' + filename;
 	window.location.hash = '#file:' + filename;
 }
@@ -54,7 +56,7 @@ selectFile.addEventListener(
     function() {
       var i = selectFile.selectedIndex;
       editor.setValue(templates[i].data);
- 			updateSelectedFileUI(selectFile.options[i].value);
+ 			updateSelectedFileUI(selectFile.options[i].value, selectFile.options[i].dataset.syntax);
       editor.setOption('mode', selectFile.options[i].dataset.syntax);
     }
 
