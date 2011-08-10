@@ -289,6 +289,7 @@ window.onload = function() {
 			'change',
 			function () {
 				socket.emit('wall', wallinputEl.value);
+				status.innerHTML = 'Wrote to all connected users:<br/> <tt>$ <strong class="keyword">wall</strong> <<< <span class="string">\'' + wallinputEl.value + '\'</span>';
 			}
 	);
 	

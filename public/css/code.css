@@ -1,0 +1,77 @@
+// htmlize
+.comment {
+	  color: #b22222;
+}
+
+.comment-delimiter {
+	  color: #b22222;
+}
+
+.constant {
+	  color: #5f9ea0;
+}
+
+.doc {
+	  color: #bc8f8f;
+}
+
+.function-name {
+	  color: #0000ff;
+}
+
+.keyword {
+	  color: #a020f0;
+}
+
+.regexp-grouping-backslash {
+	  font-weight: bold;
+}
+
+.regexp-grouping-construct {
+	  font-weight: bold;
+}
+
+.string {
+	  color: #bc8f8f;
+}
+
+.variable-name {
+	  color: #b8860b;
+}
+
+.warning {
+	  color: #ff0000;
+	  font-weight: bold;
+}
+
+.comint-highlight-input {
+	  font-weight: bold;
+}
+
+.comint-highlight-prompt {
+	  color: #00008b;
+}
+
+.string {
+	  color: #bc8f8f;
+}
+
+.bold {
+	  font-weight: bold;
+}
+
+.gnus-group-mail-3-empty {
+	  color: #8b008b;
+}
+
+.comment {
+	  color: #b22222;
+}
+
+.comment-delimiter {
+	  color: #b22222;
+}
+
+.string {
+	  color: #bc8f8f;
+}

@@ -20,3 +20,6 @@ Examples:
 ** Correct csslint errors
 
 csslint: There are 13 problems in /Users/jwalsh/sandbox/chrome-extension-ide/public/css/shell.css.
+** XSS scoping 
+
+Run validation cases for displayed user agent display, wall updates, localStorage changes that are persisted. 
