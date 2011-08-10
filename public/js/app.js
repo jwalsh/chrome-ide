@@ -235,8 +235,8 @@ window.onload = function() {
 	socket.on('news', function (data) {
 		var status = document.querySelector('#status');
 		status.innerHTML = JSON.stringify(data);
-		socket.emit('status', { ui: 'updated' + navigator.userAgent });
 	});
+	socket.emit('status', navigator.appName + ' at ' + new Date());
 
 };
 

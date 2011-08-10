@@ -19,6 +19,7 @@ io.sockets.on('connection', function (socket) {
   socket.emit('news', { load: new Date() });
   socket.on('status', function (data) {
     console.log(data);
+		socket.emit('news', { connect: data });
   });
 });
 
