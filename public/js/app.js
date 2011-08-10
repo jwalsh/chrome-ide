@@ -8,6 +8,7 @@ var filetypeEl = document.querySelector('#filetype');
 var status = document.querySelector('#status');
 var titleEl = document.querySelector('title');
 var filesEl = document.getElementById('files');
+var wallinputEl = document.getElementById('wallinput');
 
 // BEGIN: file template populator
 // This is the main selection for the default files content 
@@ -283,6 +284,23 @@ window.onload = function() {
 
 	// Custom updates 
 	socket.emit('status', navigator.appName + ' at ' + new Date());
+
+	wallinputEl.addEventListener(
+			'change',
+			function () {
+				socket.emit('wall', wallinputEl.value);
+			}
+	);
+	
+
+  FB.init({
+    appId  : '203829153003503',
+    status : true, // check login status
+    cookie : true, // enable cookies to allow the server to access the session
+    xfbml  : true, // parse XFBML
+    channelURL : 'http://WWW.MYDOMAIN.COM/channel.html', // channel.html file
+    oauth  : true // enable OAuth 2.0
+  });
 
 };
 

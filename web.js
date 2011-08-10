@@ -25,12 +25,19 @@ io.sockets.on('connection', function(socket){
   socket.on(
 			'status', 
 			function (data) {
-				console.log(data);
+				// console.log(data);
 				// This just shows the user agent and time when the 
 				// client supplies the information:
-				// socket.broadcast.send('status: ' + data);
+				socket.broadcast.send('status: ' + data);
 			});
 
+
+  socket.on(
+			'wall', 
+			function (data) {
+				//				console.log('wall: ' + data);
+				socket.broadcast.send(data);
+			});
 
 	// console.log({clients:activeClients});
   socket.on(
