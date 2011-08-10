@@ -235,11 +235,10 @@ window.onload = function() {
 	socket.on('news', function (data) {
 		var status = document.querySelector('#status');
 		status.innerHTML = JSON.stringify(data);
-		socket.emit('my other event', { my: 'data' });
+		socket.emit('status', { ui: 'updated' + navigator.userAgent });
 	});
 
 };
-
 
 // END: Final UI cleanup  
 
