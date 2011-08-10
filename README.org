@@ -9,3 +9,11 @@ Fork of the project for the Google Seattle HTML5 Web App Hackathon.
 ** UI modifications 
 
 ** localStorage
+
+** Create UI builder 
+
+Examples:
+- http://developer.yahoo.com/yui/grids/builder/
+- Tripod
+
+** Use flexible layout

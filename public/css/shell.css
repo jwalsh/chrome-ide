@@ -1,121 +1,81 @@
 body {
-    font-family:'Oswald', Helvetica, Arial, sans-serif;
-    font-size:16pt;
-    margin:0px;
-    background:#aaa;
+    font-family: 'Open Sans', arial, sans-serif;
+		color: #666;
+		background-image: linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black), 
+		linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black);
+		background-size:60px 60px;
+		background-position:0 0, 30px 30px
 }
 
-textarea {
-    border:1px solid #333;
+h1 { 
+		color: #333;
 }
 
-#wrapper {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    height:90%;
-    margin:10px;
-    border:2px solid #333;
-    border-radius:10px;
-    padding:10px;
-    box-shadow: inset 3px 3px 3px #fff, inset -3px -3px 3px #fff, 3px 3px 4px rgba(0,0,0,0.6), -3px -3px 4px rgba(0,0,0,0.6);
-    background:#eee;
+h2 { 
+		color: #2e5c8a;
+		font-size: 18px;
 }
 
-#wrapper::Before {
-    content:"Chrome Extension IDE";
+/* The filename */
+h3 { 
+		font-family: monospace;
+} 
+
+a:link { 
+		color: #b87a3d;
 }
 
-#editContainer {
-    position:relative;
-    display: -webkit-box;
-    -webkit-box-orient: horizontal;
-    margin:5px;
-    width:100%;
-    -webkit-box-flex:1;
+a:visited {
+		color: #6699cc;
 }
 
-#fileEditor {
-    margin:5px;
-    -webkit-box-flex:1;
-    height:80%;
-}
-
-#main_editor {
-    width:100%;
-		
-}
-
-#fileSelect {
-    width:200px;
-    height:80%;
-    margin:5px;
-    z-index:5000;
-}
-
-#selectFile {
-    width:100%;
-    height:100%;
-    margin:0px;
-}
-
-#fileSelect:hover::after {
-    content:"Select a file to edit.";
-    background:#fff;
-    border:1px solid #333;
-    z-index:5000;
-    top:-25px;
-    padding:1px;
-    width:100%;
-}
-
-#fileTitle {
-	width:100%;
-}
-
-div#files {
-	margin-top:11px;
+nav {
+		width: 300px;
+		float: right;
+		border: 1px solid #888888;
+		padding: 10px;
+		border: 1px solid #dddddd;
+		border-radius: 10px;
+		background: rgb(210, 219, 237);
 }
 
 #status {
-	height:18px;
-	width:100%;
+		border: 1px solid #dddddd;
+		padding: 10px;
+		width: 300px;
+		float: right;
+		text-align: right;
+		color: #cccc99;
+		border-radius: 10px;
 }
 
-#commandBar {
-    position:relative;
-    margin:20px 20px 5px 20px;
-    display: -webkit-box;
-    -webkit-box-pack:center;
-    -webkit-box-align:start;
-    -webkit-box-orient: horizontal;
-    box-shadow: inset 3px 3px 3px rgba(0,0,0,0.4), inset -3px -3px 3px rgba(0,0,0,0.4);
-    padding:10px;
-    border-radius:5px;
-	height:40px;
-    background:rgba(255,255,255,0.7);
-    z-index:1;
+.or { 
+
+		width: 100%;
+		text-align: center;
+		font-size: 22px;
+		color: #cccc99;
 }
 
-.message {
-    position:relative;
-    font-size:28pt;
-    font-weight:bold;
-    background: rgba(255, 255, 255, 0.7);
-    padding:20px 20px 20px 80px;
-    margin:100px;
-    border:2px solid #555;
-    border-radius:10px;
-    box-shadow:5px 5px 8px rgba(0,0,0,0.5);
-    background-image:url(/img/logo_babypanda.png);
-    background-position:left;
-    background-repeat:no-repeat;
-    width: 400px;
-    line-height: 1.1;
+#downloadify, object { 
+		width: 120px;
+		height: 37px;
+}
+
+select  {
+		width: 100%;
+		color: #444;
+
+}
+
+option { 
+		border-bottom: 1px solid #aaa;
 }
 
 /* codemirror styles */
 .CodeMirror {
-	border: 1px solid #333;
-	font-size: 15px;
-	height:100%;
+		border: 1px solid #333;
+		font-size: 15px;
+		height: 300px; /* Defined by default for .CodeMirror-gutter */
+		width: 860px;
 }
