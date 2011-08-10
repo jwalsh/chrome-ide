@@ -246,31 +246,31 @@ window.onload = function() {
 	socket.on(
 			'connect',
 			function () { 
-				console.log('connect');
+				console.log('connect at ' + +new Date());
 			});
 
 	socket.on(
 			'disconnect',
 			function () { 
-				console.log('disconnect');
+				console.log('disconnect at ' + +new Date());
 			});
 
 	socket.on(
 			'reconnecting',
 			function () { 
-				console.log('reconnecting');
+				console.log('reconnecting at '+ +new Date());
 			});
 
 	socket.on(
 			'reconnect',
 			function () { 
-				console.log('reconnect');
+				console.log('reconnect at ' + +new Date());
 			});
 
 	socket.on(
 			'broadcast',
 			function () { 
-				console.log('broadcast');
+				console.log('broadcast at ' + +new Date());
 			});
 
 	// Custom events for broadcast
