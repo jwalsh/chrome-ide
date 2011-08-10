@@ -41,7 +41,7 @@ var templates = [
     },
     {
       name: '*scratch*',
-      syntax: 'text',
+      syntax: 'text/html',
       data: ''
     }
 
