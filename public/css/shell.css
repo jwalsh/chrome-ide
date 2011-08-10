@@ -16,6 +16,9 @@ h2 {
 		font-size: 18px;
 }
 
+header {
+		width: 854px; 
+}
 /* The filename */
 h3 { 
 		font-family: monospace;
