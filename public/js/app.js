@@ -235,5 +235,11 @@ window.onload = function() {
 
 // END: Final UI cleanup  
 
+var socket = io.connect('/');
+socket.on('news', function (data) {
+  var status = document.querySelector('#status');
+  status.innerHTML = JSON.stringify(data);
+  socket.emit('my other event', { my: 'data' });
+});
 
 
