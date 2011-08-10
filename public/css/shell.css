@@ -27,7 +27,7 @@ h3 {
 		padding: 3px;
 		margin: 0px;
 		margin-bottom: 15px;
-		width: 855px;
+		width: 854px;  /* +1 for Chrome proper */
 } 
 
 #filename { 
@@ -73,8 +73,8 @@ nav {
 }
 
 object {
-		width: 120px;
-		height: 37px;
+		width: 100px; /* +30 for Chrome proper */
+		height: 30px; /* +4 for Chrome proper */
 }
 
 select  {
