@@ -76,9 +76,9 @@
 			<script type="text/javascript" src="js/app.js"> 
 			</script>
 
-<script src="http://localhost:8123/socket.io/socket.io.js"></script>
+<script src="/socket.io/socket.io.js"></script>
 <script>
-  var socket = io.connect('http://empty-warrior-536.herokuapp.com:8123/');
+  var socket = io.connect('/');
   socket.on('news', function (data) {
     var status = document.querySelector('#status');
     status.innerHTML = data.toString();
