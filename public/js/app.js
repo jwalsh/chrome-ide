@@ -246,38 +246,37 @@ window.onload = function() {
 	socket.on(
 			'connect',
 			function () { 
-				console.log('connect at ' + +new Date());
+				status.innerHTML = ('connect at ' + +new Date());
 			});
 
 	socket.on(
 			'disconnect',
 			function () { 
-				console.log('disconnect at ' + +new Date());
+				status.innerHTML = ('disconnect at ' + +new Date());
 			});
 
 	socket.on(
 			'reconnecting',
 			function () { 
-				console.log('reconnecting at '+ +new Date());
+				status.innerHTML = ('reconnecting at '+ +new Date());
 			});
 
 	socket.on(
 			'reconnect',
 			function () { 
-				console.log('reconnect at ' + +new Date());
+				status.innerHTML = ('reconnect at ' + +new Date());
 			});
 
 	socket.on(
 			'broadcast',
 			function () { 
-				console.log('broadcast at ' + +new Date());
+				status.innerHTML = ('broadcast at ' + +new Date());
 			});
 
 	// Custom events for broadcast
 	socket.on(
 			'news', 
 			function (data) {
-				console.log(data);
 				var status = document.querySelector('#status');
 				status.innerHTML = JSON.stringify(data);
 			});
@@ -289,7 +288,7 @@ window.onload = function() {
 			'change',
 			function () {
 				socket.emit('wall', wallinputEl.value);
-				status.innerHTML = 'Wrote to all connected users:<br/> <tt>$ <strong class="keyword">wall</strong> <<< <span class="string">\'' + wallinputEl.value + '\'</span>';
+				status.innerHTML = 'Wrote to all: <span class="string">\'' + wallinputEl.value + '\'</span>';
 			}
 	);
 	
