@@ -78,10 +78,15 @@
 
 <script src="/socket.io/socket.io.js"></script>
 <script>
-  var socket = io.connect('http://empty-warrior-536.herokuapp.com/');
-  socket.on('news', function (data) {
-    console.log(data);
-    socket.emit('my other event', { my: 'data' });
+  var chat = io.connect('/chat')
+    , news = io.connect('/news');
+
+  chat.on('connect', function () {
+    chat.emit('hi!');
+  });
+
+  news.on('news', function () {
+    news.emit('woot');
   });
 </script>
 
