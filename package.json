@@ -1,5 +1,5 @@
 {
-	"name": "Chrome IDE",
+	"name": "ChromeIDE",
 	"version": "0.0.2",
 	"dependencies": {
 		"connect": "1.6.0"
