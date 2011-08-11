@@ -202,6 +202,7 @@ var initFilesystem = function(fs) {
   file.save({});
 };
 
+// TODO: Review the implementation of requestFileSystem given API churn
 window.requestFileSystem = window.requestFileSystem || window.webkitRequestFileSystem;
 window.requestFileSystem(window.PERSISTENT, 1024 * 1024, initFilesystem, errorHandler);
 filesEl.addEventListener('change', handleFileSelect, false);
@@ -236,6 +237,8 @@ window.onload = function() {
 
 	socket = io.connect('/');
 
+	// The client generally sends the messages on significant updates.
+	// Initially this is for save or view operations.
 	socket.on(
 			'message', 
 			function (msg) {
@@ -243,41 +246,17 @@ window.onload = function() {
 				status.innerHTML = msg;
 			});
 
-	socket.on(
-			'connect',
-			function () { 
-				status.innerHTML = ('Connect at ' + +new Date());
-			});
-
-	socket.on(
-			'disconnect',
-			function () { 
-				status.innerHTML = ('Disconnect at ' + +new Date());
-			});
-
-	socket.on(
-			'reconnecting',
-			function () { 
-				status.innerHTML = ('Reconnecting at '+ +new Date());
-			});
-
-	socket.on(
-			'reconnect',
-			function () { 
-				status.innerHTML = ('Reconnect at ' + +new Date());
-			});
-
-	socket.on(
-			'reconnect_failed',
-			function () { 
-				status.innerHTML = ('Reconnect failed at ' + +new Date());
-			});
-
-	socket.on(
-			'broadcast',
-			function () { 
-				status.innerHTML = ('Broadcast at ' + +new Date());
-			});
+	// Build a default response to check standard state behavior.
+	var states = ['connect', 'disconnect', 'reconnecting', 'reconnect', 'reconnect_failed', 'broadcast'];
+	for (var i = 0; i < states.length; i++) { 
+		socket.on(
+			states[i],
+			function (state) { 
+				return function() {
+					status.innerHTML = (state.replace('_', ' ') + ' at ' + +new Date());
+				};
+			}(states[i]));
+	}
 
 	// Custom events for broadcast
 	socket.on(
@@ -304,7 +283,6 @@ window.onload = function() {
     status : true, // check login status
     cookie : true, // enable cookies to allow the server to access the session
     xfbml  : true, // parse XFBML
-    channelURL : 'http://WWW.MYDOMAIN.COM/channel.html', // channel.html file
     oauth  : true // enable OAuth 2.0
   });
 
