@@ -303,9 +303,9 @@ window.onload = function() {
 	socketEcho.onmessage = function(event) { console.log(event.data); };	
 
 
-  google.load('payments', '1.0', {
-  'packages': ['sandbox_config']
-  });
+  // google.load('payments', '1.0', {
+  // 'packages': ['sandbox_config']
+  // });
 
 	FB.init({
 		appId	 : '203829153003503',
