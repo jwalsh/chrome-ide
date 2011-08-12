@@ -16,6 +16,25 @@ header, article, h3, textarea {
 		width: 854px; 
 }
 
+header { 
+		display: -webkit-box;
+		/* horizontal | vertical | inline-axis | block-axis | inherit      /* As specified */*/
+		box-orient: horizontal;
+		-moz-box-orient:    horizontal;         
+		-webkit-box-orient: horizontal;
+}
+sidebar, article { 
+		display: -webkit-box;
+		/* horizontal | vertical | inline-axis | block-axis | inherit      /* As specified */*/
+		box-orient: vertical;
+		-moz-box-orient:    vertical;         
+		-webkit-box-orient: vertical;
+}
+
+sidebar, .status { 
+		float: right;
+}
+
 /* Above and below the text area for editor UI*/
 nav { 
 		width: 860px; 
@@ -71,7 +90,8 @@ nav ul li {
 
 sidebar {
 		width: 300px;
-		float: right;
+		//		float: right;
+		-webkit-box-flex: 3;
 		padding: 10px;
 		border: 1px solid #dddddd;
 		border-radius: 10px;
@@ -82,12 +102,25 @@ sidebar {
 		border: 1px solid #dddddd;
 		padding: 10px;
 		width: 300px;
-		float: right;
+		/* float: right; replaced with Flexbox */
+		-webkit-box-flex: 3;
 		text-align: right;
 		color: #cccc99;
 		border-radius: 10px;
+		-webkit-transition-property: background;
+		-webkit-transition-duration: 0.3s;
+		-webkit-transition-timing-function: ease;
 }
 
+.status:hover {
+		background: #ddd;
+}
+
+.status, sidebar {
+		-moz-box-shadow: 10px 10px 5px #888;
+		-webkit-box-shadow: 10px 10px 5px #888;
+		box-shadow: 10px 10px 5px #888;
+}
 .or { 
 
 		width: 100%;

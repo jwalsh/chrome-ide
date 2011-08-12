@@ -44,9 +44,19 @@ var templates = [
       name: '*scratch*',
       syntax: 'text/html',
       data: ''
+    },
+    {
+      name: '*syntax*',
+      messages: 'text/html',
+      data: ''
     }
 
+
 ];
+
+// TODO:  Implement feature based on typed arrays
+var buffer = new ArrayBuffer(1024);
+
 
 // Render template model into an option view 
 templates.forEach(function(item) {
@@ -61,7 +71,6 @@ function updateSelectedFileUI(filename, filetype) {
   titleEl.innerHTML = filename + ': Chrome IDE';
   window.location.hash = '#file:' + filename;
 	socket.emit('status', navigator.appName + ' viewed ' + filename + ' on ' + new Date());
-
 }
 
 // When selecting any filename update the main editor window (and title)
@@ -235,6 +244,8 @@ window.onload = function() {
   var status = document.querySelector('#status');
   status.innerHTML = 'Loaded';
 
+	// BEGIN: Network dependencies 
+
 	socket = io.connect('/');
 
 	// The client generally sends the messages on significant updates.
@@ -247,6 +258,14 @@ window.onload = function() {
 			});
 
 	// Build a default response to check standard state behavior.
+	// Socket.io appears to generate state from the transitions given
+	// the WebSocket interface (unless this is readyState differing from
+	// the specified API):
+	// const unsigned short CONNECTING = 0;
+	// const unsigned short OPEN = 1;
+	// const unsigned short CLOSING = 2;
+	// const unsigned short CLOSED = 3;
+
 	var states = ['connect', 'disconnect', 'reconnecting', 'reconnect', 'reconnect_failed', 'broadcast'];
 	for (var i = 0; i < states.length; i++) { 
 		socket.on(
@@ -273,18 +292,29 @@ window.onload = function() {
 			'change',
 			function () {
 				socket.emit('wall', wallinputEl.value);
-				status.innerHTML = 'Wrote to all: <span class="string">\'' + wallinputEl.value + '\'</span>';
+				status.innerHTML = 'Wrote to all: <span class="string">\'' +
+					wallinputEl.value + '\'</span>';
+				status.classList.add('user-action');
 			}
 	);
-	
 
-  FB.init({
-    appId  : '203829153003503',
-    status : true, // check login status
-    cookie : true, // enable cookies to allow the server to access the session
-    xfbml  : true, // parse XFBML
-    oauth  : true // enable OAuth 2.0
+
+	var socketEcho = new WebSocket('ws://html5rocks.websocket.org/echo');
+	socketEcho.onmessage = function(event) { console.log(event.data); };	
+
+
+  google.load('payments', '1.0', {
+  'packages': ['sandbox_config']
   });
+
+	FB.init({
+		appId	 : '203829153003503',
+		status : true, // check login status
+		cookie : true, // enable cookies to allow the server to access the session
+		xfbml	 : true, // parse XFBML
+		oauth	 : true // enable OAuth 2.0
+	});
+	// END: Network dependencies 
 
 };
 

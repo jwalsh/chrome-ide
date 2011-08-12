@@ -15,7 +15,6 @@
 
 			<header>
 				<h1>Chrome IDE <img src="img/icon16.png"/></h1>
-				<p>Create a Chrome application or extension with your <a href="http://www.google.com/chromebook/">Chromebook</a> using our predefined templates or upload your own files.</p>
 			</header>
 
 			<sidebar>
@@ -45,7 +44,11 @@
 
 				<h2>4. Upload</h2>
 
-				<p>Go to the <a href="https://chrome.google.com/webstore/developer/dashboard">Developer Dashboard</a> and upload your new application or install your packaged CRX file.</p>
+				<p>Go to
+				the <a href="https://chrome.google.com/webstore/developer/dashboard">Developer
+				Dashboard</a> and upload your new application or install your
+				packaged CRX file.</p>
+
 
 			</sidebar>
 
@@ -71,7 +74,13 @@
 			</article>
 
 			<footer>
-				Created at the <a href="http://www.meetup.com/seattle-gtug/events/24935551/">Seattle Google HTML5 Web App Hackathon</a>.
+				Create a Chrome application or extension with
+				your <a href="http://www.google.com/chromebook/">Chromebook</a>
+				using our predefined templates or upload your own files.
+
+				Built as part of
+				the <a href="http://www.meetup.com/seattle-gtug/events/24935551/">Seattle
+				Google HTML5 Web App Hackathon</a>.
 			</footer>
 
 			<p>
@@ -81,7 +90,7 @@
 
 			<div id="fb-root"></div>
 			<fb:like/>
-			<script src="http://connect.facebook.net/en_US/all.js"></script>
+
 			
 			<!-- codemirror js -->
 			<script src="lib/CodeMirror-2.12/lib/codemirror.js"></script>
@@ -90,16 +99,24 @@
 			<script src="lib/CodeMirror-2.12/mode/javascript/javascript.js"></script>
 			<script src="lib/CodeMirror-2.12/mode/htmlmixed/htmlmixed.js"></script>
 			
-			<script type="text/javascript" src="lib/swfobject.js"></script> 
-			<script type="text/javascript" src="lib/downloadify.js"></script> 
+			<script src="lib/swfobject.js"></script> 
+			<script src="lib/downloadify.js"></script> 
 
-			<script type="text/javascript" src="lib/coffee-script.js"></script> 
+			<script src="lib/coffee-script.js"></script> 
 
-			<script type="text/javascript" src="lib/jszip.js"></script> 
-			<script type="text/javascript" src="/socket.io/socket.io.js"></script>
-			<script type="text/javascript" src="js/app.js"> 
+			<script src="lib/jszip.js"></script> 
+
+			<!-- Requires application container --> 
+			<script src="/socket.io/socket.io.js"></script>
+
+			<!-- External: not available when offline (both http and https) --> 
+			<script src="//www.google.com/jsapi"></script>
+			<script src="http://connect.facebook.net/en_US/all.js"></script>
+
+			<!-- Application --> 
+			<script src="js/app.js"> 
 			</script>
-			<script type="text/coffeescript" src="js/app.coffee">
+			<script src="js/app.coffee">
 			</script>
 		</body> 
 	</html> 

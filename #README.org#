@@ -4,7 +4,11 @@ Fork of the project  (https://bitbucket.org/btosch/superchromeide) for
 the Google Seattle HTML5 Web App Hackathon
 (http://html5hack.appspot.com/preso/crhack.html).
 
-This includes prototype implementations of the following 
+
+This application includes several features for both HTML5 as well as
+Google Chome Web Store.
+
+** HTML5
 
 - CSS3 transitions/transforms/drop shadow/border radius
 http://www.alistapart.com/articles/understanding-css3-transitions/ 
@@ -21,6 +25,9 @@ http://dev.w3.org/html5/websockets/
 - Typed Arrays (not active)
 http://www.khronos.org/registry/typedarray/specs/latest/
 
+** chrome web store 
+
+- 
 
 * and
 
