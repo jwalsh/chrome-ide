@@ -1,0 +1,6 @@
+[submodule "public/lib/coffee-script"]
+	path = public/lib/coffee-script
+	url = https://github.com/jashkenas/coffee-script.git
+[submodule "public/lib/jsDataView"]
+	path = public/lib/jsDataView
+	url = https://github.com/vjeux/jsDataView.git
