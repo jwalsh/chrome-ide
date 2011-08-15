@@ -25,9 +25,6 @@ io.sockets.on('connection', function(socket){
   socket.on(
 			'status', 
 			function (data) {
-				// console.log(data);
-				// This just shows the user agent and time when the 
-				// client supplies the information:
 				socket.broadcast.send('status: ' + data);
 			});
 
@@ -39,7 +36,6 @@ io.sockets.on('connection', function(socket){
 				socket.broadcast.send(data);
 			});
 
-	// console.log({clients:activeClients});
   socket.on(
 			'disconnect', 
 			function(socket) {
